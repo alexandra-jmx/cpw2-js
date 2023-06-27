@@ -6,14 +6,13 @@
  * @returns Um array com os nomes invertidos
  */
 function invert(people){
-
     // TODO
     // 1) Peça ao usuário para digitar vários nomes. Exiba na tela
     // todos os nomes digitados, porém de maneira invertida (do último para o primeiro).
     // Uma dica, você pode utilizar a função prompt para permitir que o usuário digite os
     // nomes dos usuários.
 
-    return [];
+    return people.reverse();
 }
 
 /**
@@ -28,9 +27,12 @@ function mean(grades){
     // 2) Faça um programa que leia o nome e as três notas de uma disciplina de um aluno e ao final escreva
     // o nome do aluno, sua média e se ele foi aprovado, sabendo-se que a média para aprovação é igual
     // ou superior a 7.
-
-    return 0;
+    //Bah, não tá dando certo :(
+    
+    mean = (grades[0] + grades[1] + grades[2])/3;
+    return mean;
 }
+    
 
 /**
  * Função recebe uma média e informa textualmente se um estudante está aprovado ou não
@@ -44,8 +46,15 @@ function isApproved(mean){
     // 2.1) Faça um programa que leia o nome e as três notas de uma disciplina de um aluno e ao final escreva
     // o nome do aluno, sua média e se ele foi aprovado, sabendo-se que a média para aprovação é igual
     // ou superior a 7.
+    let conceito;
 
-    return "";
+    if (mean >= 7) {
+        conceito = "aprovado";
+    } else {
+        conceito = "reprovado";
+    }
+
+    return conceito;
 }
 
 /**
@@ -61,9 +70,57 @@ function wide(strDate){
     // por exemplo, de "03/03/2022" para "03 de março de 2022". Dica: use a função
     // “split” de uma string que quebra a string em pedaços dado um separador como argumento da função.
     // Nesse caso, o separador é a barra (/) da data.
+    let data = strDate.split('/');
+    let mes = data[1];
 
-    return "";
+    switch (mes) {
+        case '01':
+            mes = 'janeiro';
+            break;
+        case '02':
+            mes = 'fevereiro';
+            break;
+        case '03':
+            mes = 'março';
+            break;
+        case '04':
+            mes = 'abril';
+            break;
+        case '05':
+            mes = 'maio';
+            break;
+        case '06':
+            mes = 'junho';
+            break;
+        case '07':
+            mes = 'julho';
+            break;
+        case '08':
+            mes = 'agosto';
+            break;
+        case '09':
+            mes = 'setembro';
+            break;
+        case '10':
+            mes = 'outubro';
+            break;
+        case '11':
+            mes = 'novembro';
+            break;
+        case '12':
+            mes = 'dezembro';
+            break;
+        default:
+    }
+    if (strDate === '') {
+        return '';
+    } else if (strDate !== data[0] + '/' + data[1] + '/' + data[2]) {
+        return '';
+    } else {
+        return data[0] + ' de ' + mes + ' de ' + data[2];
+    }
 }
+//Amém, agora foi
 
 // Trecho utilizado pelos testes
 exports._test = {
